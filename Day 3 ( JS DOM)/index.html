@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document OBJECT MODEL</title>
+</head>
+<body>
+    <!-- Just select the id -->
+    <h1 id="Hi">JS DOM</h1>    
+    <!-- Create a function with name of changetext when button is clicked -->
+    <button onclick="changetext()">Click Me</button>
+
+    <script>
+        // Function that will change the text and color of the id once the button is clicked
+        function changetext() {
+            const id = document.getElementById("Hi"); 
+            id.textContent = "DOM First Function"; 
+            id.style.color = "red"; // Changed color
+        }
+    </script>
+</body>
+</html>
