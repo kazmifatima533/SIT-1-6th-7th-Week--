@@ -1,0 +1,26 @@
+<!-- Example 3: Changing Background Color of All Elements with a Specific Tag -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementsByTagName Example</title>
+</head>
+<body>
+
+    <p>This is the first paragraph.</p>
+    <p>This is the second paragraph.</p>
+    <p>This is the third paragraph.</p>
+
+    <script>
+        // Get all <p> elements on the page
+        const paragraphs = document.getElementsByTagName('p');
+        
+        // Loop through all the paragraph elements and change their background color
+        for (let i = 0; i < paragraphs.length; i++) {
+            paragraphs[i].style.backgroundColor = 'pink';  // Set background color to light blue
+        }
+    </script>
+
+</body>
+</html>

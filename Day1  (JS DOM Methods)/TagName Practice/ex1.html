@@ -1,0 +1,27 @@
+<!-- getElementsByTagName -->
+<!-- Example 1: Changing the Font Size of All Paragraphs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementsByTagName Example</title>
+</head>
+<body>
+
+    <p>This is the first paragraph.</p>
+    <p>This is the second paragraph.</p>
+    <p>This is the third paragraph.</p>
+
+    <script>
+        // Get all <p> elements on the page
+        const paragraphs = document.getElementsByTagName('p');
+        
+        // Loop through all the paragraphs and change their font size
+        for (let i = 0; i < paragraphs.length; i++) {
+            paragraphs[i].style.fontSize = '20px';  // Change font size to 20px
+        }
+    </script>
+
+</body>
+</html>
