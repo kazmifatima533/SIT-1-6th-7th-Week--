@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keybord Events Example</title>
+</head>
+<body>
+    <input type="text" id="myInput" placeholder="Type something..." />
+    <p id="message"></p>
+
+    <script>
+        const input = document.getElementById('myInput');
+        const message = document.getElementById('message');
+
+        //event object will contain useful information related to that event. 
+
+        //keydown event is fired when the user presses a key. It's useful for detecting actions right as the key is pressed.
+        input.addEventListener('keydown', (event) => {
+            message.textContent = `You pressed the key: ${event.key}`;
+        });
+
+        // keyup event fires when the user releases a key.
+        //We show the key name that was released in the message paragraph.
+        input.addEventListener('keyup', (event) => {
+            message.textContent = `You released the key: ${event.key}`;
+        });
+
+        //keypress event was used to detect when a printable character is pressed (like letters and numbers).
+        // This is deprecated. Use `keydown` or `keyup` instead.
+        input.addEventListener('keypress', (event) => {
+            message.textContent = `You pressed a printable key: ${event.key}`;
+        });
+        
+
+    </script>
+</body>
+</html>

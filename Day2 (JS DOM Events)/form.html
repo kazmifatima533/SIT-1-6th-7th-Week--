@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Form with LocalStorage</title>
+</head>
+<body>
+    <h1>Submit Your Information</h1> 
+    
+    <form id="userForm"> 
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required> 
+        <br><br>
+
+        <label for="email">Email:</label> 
+        <input type="email" id="email" name="email" required> 
+        <br><br>
+
+        <button type="submit">Submit</button> 
+    </form>
+
+    <script>
+        // Getting the form element by its ID
+        const form = document.getElementById('userForm');
+   
+        // Adding an event listener to the form that listens for the 'submit' event
+        form.addEventListener('submit', function(event) { 
+            event.preventDefault(); // Prevents the default form submission behavior
+
+            // Collecting the value entered in the 'name' input field
+            const name = document.getElementById('name').value;
+
+            // Collecting the value entered in the 'email' input field
+            const email = document.getElementById('email').value;
+
+            // Creating an object to store the collected user data (name and email)
+            const userData = {
+                name: name,
+                email: email
+            };
+
+            // Storing the user data in localStorage as a JSON string
+            localStorage.setItem('userData', JSON.stringify(userData));
+
+            // Displaying an alert to the user indicating successful login
+            alert("User LogIn successfully!");
+        });
+    </script>
+</body>
+</html>
+
+    </script>
+</body>
+</html>

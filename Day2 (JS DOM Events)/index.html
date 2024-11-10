@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Events Example</title>
+</head>
+<body>
+    <button id="myButton">Click Me!</button>
+    <button id="Button">Button</button>
+    <input type="text" id="myInput" placeholder="Type here..." />
+    <p id="message"></p>
+
+    <script>
+
+        // Wait for the DOM content to be fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Select the elements and assign them to variables
+            const button1 = document.getElementById('myButton');
+            const button2 = document.getElementById('Button');
+            const input = document.getElementById('myInput');
+            const message = document.getElementById('message');
+
+            // Click event for button1 with alert
+            button1.addEventListener('click', () => {
+                const name = 'Fatima';
+                alert(`You clicked me, ${name}`);
+            });
+
+            // Define a reusable function for an alert message
+            function showAlert() {
+                alert('Button was clicked!');
+            }
+
+            // Add and immediately remove the `showAlert` function to illustrate event removal
+            button1.addEventListener('click', showAlert);
+            button1.removeEventListener('click', showAlert);
+
+            //The callback function will be triggered each time the user types.
+            input.addEventListener('input', (event) => {
+                // //retrieves the current value of the input field.
+                const value = event.target.value;
+                console.log("The input value is:", value);
+                //you typed: ${value}; updates the element p with the ID message to show what the user typed.
+                message.textContent = `You typed: ${value}`;
+            });
+
+            //MOUSE EVENTS
+            //Click Event
+            button2.addEventListener('click', () => {
+                message.textContent = 'Button was clicked!';
+            });
+            
+            //Mouse over event
+            button2.addEventListener('mouseover', () => {
+                button2.style.backgroundColor = 'lightblue';
+            });
+
+            //Mouse out event
+            button2.addEventListener('mouseout', () => {
+                button2.style.backgroundColor = '';
+            });
+            
+            // Double-click event - changes button background color to blue on double click
+            button2.addEventListener('dblclick', () => {
+                button2.style.backgroundColor = 'purple';
+                message.textContent = "Button was double-clicked!";
+            });
+
+            // Mouse down event - changes button background color to yellow when the mouse button is pressed down
+            button2.addEventListener('mousedown', () => {
+                button2.style.backgroundColor = 'yellow';
+                message.textContent = "Mouse button pressed down!";
+            });
+
+            // Mouse up event - changes button background color to red when the mouse button is released
+            button2.addEventListener('mouseup', () => {
+                button2.style.backgroundColor = 'red';
+                message.textContent = "Mouse button released!";
+            });
+        });
+    </script>
+</body>
+</html>

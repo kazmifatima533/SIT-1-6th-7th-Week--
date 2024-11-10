@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(104, 42, 53);
+        }
+        #profileContainer {
+            background-color: #c77070;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="profileContainer">
+        <h2>User Profile</h2>
+        <div id="profileInfo"></div>
+    </div>
+
+    <script>
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (user) {
+            //document.getElementById("profileInfo") finds the HTML element with the id of "profileInfo". 
+            //This is where user information will be displayed on the profile page.
+            //.innerHTML = ...allows us to insert HTML content into the"profileInfo"` element.
+            document.getElementById("profileInfo").innerHTML = `
+                <p><strong>Name:</strong> ${user.name}</p> 
+                <p><strong>Email:</strong> ${user.email}</p>
+            `;
+        } else {
+            alert("No user data found.");
+            window.location.href = 'signup.html';
+        }
+    </script>
+</body>
+</html>
