@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent">
+        <p id="p1">First paragraph</p>
+        <p>Second paragraph</p>
+        <p>Third paragraph</p>
+    </div>
+
+    <ul>
+        <li id="item1">Item 1</li>
+        <li id="item2">Item 2</li>
+        <li id="item3">Item 3</li>
+    </ul>
+
+    <div id="container">
+        <p id="toRemove">This will be removed</p>
+        <p>This will stay</p>
+    </div>
+</body>
+<script>
+    // Access the parent element
+    let parent = document.getElementById("parent");
+
+    // Access the child element
+    let child = document.getElementById("p1");
+    console.log(child.parentElement); // Display parent
+
+    // Access all child elements
+    console.log(parent.children); // Output: HTMLCollection [<p>, <p>, <p>]
+
+    // Access the first child element
+    console.log(parent.firstElementChild); // Output: <p>First paragraph</p>
+
+    // Access the second child element (fix)
+    console.log("The second element is:", parent.children[1]); // Output: <p>Second paragraph</p>
+
+    // Access the last child element
+    console.log(parent.lastElementChild); // Output: <p>Third paragraph</p>
+
+    // Loop through all children and modify text content
+    for (let child of parent.children) {
+        console.log(child.textContent);
+        child.textContent = "Modified";
+    }
+
+    // Create a new element and append it to the parent
+    let newchild = document.createElement("p");
+    newchild.textContent = "User New paragraph";
+    parent.appendChild(newchild);
+
+    // Accessing sibling elements
+    let item2 = document.getElementById("item2");
+    console.log(item2.previousElementSibling); // Output: <li id="item1">Item 1</li>
+    console.log(item2.nextElementSibling); // Output: <li id="item3">Item 3</li>
+
+    // Removing a child element
+    let container = document.getElementById("container");
+    let toRemove = document.getElementById("toRemove");
+    container.removeChild(toRemove);
+</script>
+</html>
